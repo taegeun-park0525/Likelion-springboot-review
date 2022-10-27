@@ -10,7 +10,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/get-api")
-public class getController {
+public class GetController {
     @RequestMapping("/request")
     public String getVariable(@RequestParam Map<String, String> param) {
         param.entrySet().forEach((map) -> {
