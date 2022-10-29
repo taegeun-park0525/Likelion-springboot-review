@@ -5,9 +5,7 @@ import com.springboot.likelionspringboot.domain.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
@@ -19,7 +17,7 @@ public class UserController {
         this.userDao = userDao;
     }
 
-    @PostMapping("/user-add")
+    @PutMapping("/user-add")
     public ResponseEntity<String> addUser(User user) {
         log.info("user-add로 요청이 들어왔습니다.");
         userDao.addUser(user);
@@ -45,5 +43,14 @@ public class UserController {
                 .status(HttpStatus.ACCEPTED)
                 .body("모든 데이터가 삭제되었습니다.");
     }
+
+//    @PostMapping("/user_search")
+//    public ResponseEntity<String> searchById(String id) {
+//        log.info("user_search로 요청이 들어왔습니다.");
+//        userDao.searchById(id);
+//        return ResponseEntity
+//                .status(HttpStatus.ACCEPTED)
+//                .body("id : " + id + "의 user가 검색되었습니다.");
+//    }
 
 }
